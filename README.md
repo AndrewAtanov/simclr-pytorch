@@ -87,7 +87,7 @@ node4: python train.py --config configs/imagenet_train_epochs200_bs2k.yaml --dis
 ```
 ## Pre-trained weights
 
-Try out a pre-trained models [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/AndrewAtanov/simclr-pytorch/colabs/model_apply.ipynb) 
+Try out a pre-trained models [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/AndrewAtanov/simclr-pytorch/blob/master/colabs/model_apply.ipynb) 
 
 Pre-trained weights can be downloaded with a command line interface as following:
 
