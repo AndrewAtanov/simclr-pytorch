@@ -52,7 +52,7 @@ python train.py --config configs/imagenet_train_epochs100_bs512.yaml
 #### Logs
 The logs and the model will be stored at `./logs/exman-train.py/runs/<experiment-id>/`. You can access all the experiments from python with `exman.Index('./logs/exman-train.py').info()`.
 
-See how to work with logs [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/AndrewAtanov/simclr-pytorch/blob/main/colabs/read_logs.ipynb) 
+See how to work with logs [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/AndrewAtanov/simclr-pytorch/colabs/read_logs.ipynb) 
 
 ### Linear Evaluation
 To train a linear classifier on top of the pretrained encoder, run the following command:
@@ -87,7 +87,7 @@ node4: python train.py --config configs/imagenet_train_epochs200_bs2k.yaml --dis
 ```
 ## Pre-trained weights
 
-Try out a pre-trained models [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/AndrewAtanov/simclr-pytorch/blob/main/colabs/model_apply.ipynb) 
+Try out a pre-trained models [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/AndrewAtanov/simclr-pytorch/colabs/model_apply.ipynb) 
 
 Pre-trained weights can be downloaded with a command line interface as following:
 
