@@ -15,7 +15,7 @@ The implementation closely reproduces the original ResNet50 results on ImageNet 
 | CIFAR-10 | 1024       | 1000      | 2v100         | 13h           | 93\.44                             | 93.95      |
 | ImageNet | 512        | 100       | 4v100         | 85h           | 60\.14                            | 60.62      |
 | ImageNet | 2048       | 200       | 16v100        | 55h           | 65\.58                            | 65.83      |
-| ImageNet | 2048       | 600       | 16v100        | 170h          | 67\.84                            | 68.71 (the big drop here but it may be in std 😅)       |
+| ImageNet | 2048       | 600       | 16v100        | 170h          | 67\.84                            | 68.71       |
 
 ## Enviroment Setup
 
