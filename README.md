@@ -116,7 +116,7 @@ python train.py --problem eval --eval_only true --iters 1 --arch linear --data i
 Parts of this code are based on the following repositories:v
 - [PyTorch](https://github.com/pytorch/pytorch), [PyTorch Examples](https://github.com/pytorch/examples/tree/ee964a2/imagenet), [PyTorch Lightning](https://github.com/PyTorchLightning/pytorch-lightning) for standard backbones, training loops, etc.
 - [SimCLR - A Simple Framework for Contrastive Learning of Visual Representations](https://github.com/google-research/simclr) for more details on the original implementation 
-- [diffdist](https://github.com/ag14774/diffdist) for multi-gpu contrastive loss implementation, allows backpropagation through `all_gather` operation (see [models/losses.py#L58](https://github.com/AndrewAtanov/simclr-pytorch/blob/697951ab8c0e9af87a1ea3e49c5ddecd36a480f5/models/losses.py#L58)) 
+- [diffdist](https://github.com/ag14774/diffdist) for multi-gpu contrastive loss implementation, allows backpropagation through `all_gather` operation (see [models/losses.py#L58](https://github.com/AndrewAtanov/simclr-pytorch/blob/master/models/losses.py#L62)) 
 - [Experiment Manager (exman)](https://github.com/ferrine/exman) a tool that distributes logs, checkpoints, and parameters-dicts via folders, and allows to load them in a pandas DataFrame, that is handly for processing in ipython notebooks.
 - [NVIDIA APEX](https://github.com/NVIDIA/apex) for LARS optimizer. We modeified LARC to make it consistent with SimCLR repo.
 
