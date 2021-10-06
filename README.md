@@ -17,6 +17,33 @@ The implementation closely reproduces the original ResNet50 results on ImageNet 
 | ImageNet | 2048       | 200       | 16v100        | 55h           | 65\.58                            | 65.83      |
 | ImageNet | 2048       | 600       | 16v100        | 170h          | 67\.84                            | 68.71       |
 
+## Pre-trained weights
+
+Try out a pre-trained models [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/AndrewAtanov/simclr-pytorch/blob/master/colabs/model_apply.ipynb) 
+
+Pre-trained weights can be downloaded with a command line interface as following:
+
+```(bash)
+pip3 install wldhx.yadisk-direct
+curl -L $(yadisk-direct https://yadi.sk/d/Sg9uSLfLBMCt5g?w=1) -o pretrained_models.zip
+unzip pretrained_models.zip 
+```
+
+To eval the preatrained CIFAR-10 linear model and encoder use the following command:
+```(bash)
+python train.py --problem eval --eval_only true --iters 1 --arch linear \
+--ckpt pretrained_models/resnet50_cifar10_bs1024_epochs1000_linear.pth.tar \
+--encoder_ckpt pretrained_models/resnet50_cifar10_bs1024_epochs1000.pth.tar
+```
+
+To eval the preatrained ImageNet linear model and encoder use the following command:
+```(bash)
+export IMAGENET_PATH=.../raw-data
+python train.py --problem eval --eval_only true --iters 1 --arch linear --data imagenet \
+--ckpt pretrained_models/resnet50_imagenet_bs2k_epochs600_linear.pth.tar \
+--encoder_ckpt pretrained_models/resnet50_imagenet_bs2k_epochs600.pth.tar
+```
+
 ## Enviroment Setup
 
 
@@ -84,32 +111,6 @@ node1: python train.py --config configs/imagenet_train_epochs200_bs2k.yaml --dis
 node2: python train.py --config configs/imagenet_train_epochs200_bs2k.yaml --dist ddp --world_size 4 --dist_address <address>:<port> --node_rank 1
 node3: python train.py --config configs/imagenet_train_epochs200_bs2k.yaml --dist ddp --world_size 4 --dist_address <address>:<port> --node_rank 2
 node4: python train.py --config configs/imagenet_train_epochs200_bs2k.yaml --dist ddp --world_size 4 --dist_address <address>:<port> --node_rank 3
-```
-## Pre-trained weights
-
-Try out a pre-trained models [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/AndrewAtanov/simclr-pytorch/blob/master/colabs/model_apply.ipynb) 
-
-Pre-trained weights can be downloaded with a command line interface as following:
-
-```(bash)
-pip3 install wldhx.yadisk-direct
-curl -L $(yadisk-direct https://yadi.sk/d/Sg9uSLfLBMCt5g?w=1) -o pretrained_models.zip
-unzip pretrained_models.zip 
-```
-
-To eval the preatrained CIFAR-10 linear model and encoder use the following command:
-```(bash)
-python train.py --problem eval --eval_only true --iters 1 --arch linear \
---ckpt pretrained_models/resnet50_cifar10_bs1024_epochs1000_linear.pth.tar \
---encoder_ckpt pretrained_models/resnet50_cifar10_bs1024_epochs1000.pth.tar
-```
-
-To eval the preatrained ImageNet linear model and encoder use the following command:
-```(bash)
-export IMAGENET_PATH=.../raw-data
-python train.py --problem eval --eval_only true --iters 1 --arch linear --data imagenet \
---ckpt pretrained_models/resnet50_imagenet_bs2k_epochs600_linear.pth.tar \
---encoder_ckpt pretrained_models/resnet50_imagenet_bs2k_epochs600.pth.tar
 ```
 
 ## Attribution
