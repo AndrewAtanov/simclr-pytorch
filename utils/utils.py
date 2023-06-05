@@ -143,6 +143,10 @@ class LinearWarmupAndCosineAnneal(torch.optim.lr_scheduler._LRScheduler):
         else:
             # ref: https://github.com/pytorch/pytorch/blob/2de4f245c6b1e1c294a8b2a9d7f916d43380af4b/torch/optim/lr_scheduler.py#L493
             le = self.last_epoch - self.warm_up
+
+            if le > self.T_max:
+                warnings.warn(f"Epoch {self.last_epoch}: reached maximum number of iterations {self.T_max + self.warm_up}. This is unexpected behavior, and this SimCLR implementation was not tested in this regime!")
+
             return [(1 + np.cos(np.pi * le / self.T_max)) /
                     (1 + np.cos(np.pi * (le - 1) / self.T_max) + self.smooth) *
                     group['lr']
